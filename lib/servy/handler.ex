@@ -19,15 +19,15 @@ defmodule Servy.Handler do
     %{method: method, path: path, resp_body: ""}
   end
 
-  def router(conv) do
-    router(conv, conv.method, conv.path)
-  end
+  # def router(conv) do
+  #   router(conv, conv.method, conv.path)
+  # end
 
-  def router(conv, "GET", "/wildthings") do
+  def router(%{method: "GET", path: "/wildthings"} = conv) do
     %{conv | resp_body: "Bears, Lions, Tigers"}
   end
 
-  def router(conv, "GET", "/bears") do
+  def router(%{method: "GET", path: "/bears"} = conv) do
     %{conv | resp_body: "Teddy, Smokey, Paddington"}
   end
 
